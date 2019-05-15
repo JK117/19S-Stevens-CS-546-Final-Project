@@ -20,7 +20,7 @@ async function getSiteById(id) {
     if(result){
         return {success: true, data: result};
     }else{
-        return { success : false, desc: `can't find ${id} in database`}
+        return { success : false, desc: `can't find site id ${id} in database`}
     }
 }
 

@@ -3,7 +3,7 @@ const uuid = require('uuid')
 const models = require('./schemas')
 const vehicleModel = models.getModel('VehicleModels')
 
-async function getVehicleById(id){
+async function getVehicleModelById(id){
     if(typeof id !== 'string'){
         return { success : false, desc: "invalid params"}
     }
@@ -11,7 +11,7 @@ async function getVehicleById(id){
     if( result ){
         return { success : true, data: result}
     }else{
-        return { success : false, desc: `can't find ${id} in database`}
+        return { success : false, desc: `can't find vehicle model id: ${id} in database`}
     }
 }
 
@@ -76,7 +76,7 @@ async function updateVehicleTotalbyId(id, num){
     if(result.n > 0){
         return { success : true , data : result.nModified}
     }else{
-        return { success : false, desc: `can't find ${id} in database`}
+        return { success : false, desc: `can't find vehicle model id: ${id} in database`}
     }
 }
 
@@ -94,12 +94,12 @@ async function updateVehicleInStoragebyId(id, num){
     if(result.n > 0){
         return { success : true , data : result.nModified}
     }else{
-        return { success : false, desc: `can't find ${id} in database`}
+        return { success : false, desc: `can't find vehicle model id: ${id} in database`}
     }
 }
 
 module.exports = {
-    getVehicleById,
+    getVehicleModelById,
     // getVehicleByModels, 
     addVehicleModels, 
     updateVehicleTotalbyId, 

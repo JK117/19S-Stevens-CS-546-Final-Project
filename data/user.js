@@ -10,11 +10,11 @@ async function getUserById(id){
     if( result ){
         return { success : true, data: result}
     }else{
-        return { success : false, desc: `can't find ${id} in database`}
+        return { success : false, desc: `can't find user id: ${id} in database`}
     }
 }
 
-async function getUserByUsername(username){
+async function getUserByUserName(username){
     if(typeof username !== 'string'){
         return { success : false, desc: "invalid params"}
     }
@@ -22,7 +22,7 @@ async function getUserByUsername(username){
     if( result ){
         return { success : true, data: result}
     }else{
-        return { success : false, desc: `can't find ${username} in database`}
+        return { success : false, desc: `can't find user name: ${username} in database`}
     }
 }
 
@@ -34,7 +34,7 @@ async function getUserBySessionId(sessionid){
     if( result ){
         return { success : true, data: result}
     }else{
-        return { success : false, desc: `can't find ${sessionid} in database`}
+        return { success : false, desc: `can't find user session: ${sessionid} in database`}
     }
 }
 
@@ -51,7 +51,7 @@ async function deleteSessionId(sessionid){
     if(result.n > 0){
         return { success : true , data : result.nModified}
     }else{
-        return { success : false, desc: `can't find ${sessionid} in database`}
+        return { success : false, desc: `can't find user session: ${sessionid} in database`}
     }
 }
 
@@ -188,7 +188,7 @@ async function addUser(data){
 
 module.exports = {
     getUserById,
-    getUserByUsername,
+    getUserByUserName,
     getUserBySessionId,
     deleteSessionId,
     addSessionIdById,
