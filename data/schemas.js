@@ -38,7 +38,7 @@ const vehicleModelSchema = mongoose.Schema({
 
 const siteSchema = mongoose.Schema({
     _id: {type:String, 'require':true}, 
-    site: {type:String, 'require':true}, 
+    siteName: {type:String, 'require':true}, 
     siteCity: {type:String, 'require':true}, 
     siteState: {type:String, 'require':true}, 
     siteType: {type:String, 'require':true}, 
