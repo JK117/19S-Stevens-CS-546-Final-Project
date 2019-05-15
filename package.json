@@ -1,0 +1,19 @@
+{
+  "name": "19s-stevens-cs-546-final-project",
+  "version": "1.0.0",
+  "description": "This is the repository for 19 Spring Stevens CS-546 final project.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JK117/19S-Stevens-CS-546-Final-Project.git"
+  },
+  "author": "Jiakuan Fan, Youjia Yan, Linjiang Xie, Ge Chang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JK117/19S-Stevens-CS-546-Final-Project/issues"
+  },
+  "homepage": "https://github.com/JK117/19S-Stevens-CS-546-Final-Project#readme"
+}
