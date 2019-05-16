@@ -1,0 +1,37 @@
+[
+    {
+        "_id": 1,
+        "siteName": "SFO", 
+        "siteCity": "San Francisco", 
+        "siteState": "CA", 
+        "siteType": "Airport"
+    },
+    {
+        "_id": 2,
+        "siteName": "JFK", 
+        "siteCity": "New York", 
+        "siteState": "NY", 
+        "siteType": "Airport"
+    },
+    {
+        "_id": 3,
+        "siteName": "EWR", 
+        "siteCity": "Newark", 
+        "siteState": "NJ", 
+        "siteType": "Airport"
+    },
+    {
+        "_id": 4,
+        "siteName": "Hoboken River Street", 
+        "siteCity": "Hoboken", 
+        "siteState": "NJ", 
+        "siteType": "City"
+    },
+    {
+        "_id": 5,
+        "siteName": "Central Mall", 
+        "siteCity": "Jersey City", 
+        "siteState": "NJ", 
+        "siteType": "City Mall"
+    }
+]

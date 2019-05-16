@@ -1,0 +1,184 @@
+[
+    {
+        "_id": 1, 
+        "vehicleModel": 1, 
+        "license": "CA123", 
+        "inStorage": true, 
+        "currentLocation": 1 
+    },
+    {
+        "_id": 2, 
+        "vehicleModel": 1, 
+        "license": "NY123", 
+        "inStorage": true, 
+        "currentLocation": 2 
+    }, 
+    {
+        "_id": 3, 
+        "vehicleModel": 1, 
+        "license": "NJ123", 
+        "inStorage": true, 
+        "currentLocation": 3
+    },
+    {
+        "_id": 4, 
+        "vehicleModel": 1, 
+        "license": "NJ234", 
+        "inStorage": true, 
+        "currentLocation": 4
+    },
+    {
+        "_id": 5, 
+        "vehicleModel": 1, 
+        "license": "NJ345", 
+        "inStorage": true, 
+        "currentLocation": 5 
+    },
+    {
+        "_id": 6, 
+        "vehicleModel": 2, 
+        "license": "NY234", 
+        "inStorage": true, 
+        "currentLocation": 2 
+    },
+    {
+        "_id": 7, 
+        "vehicleModel": 2, 
+        "license": "NJ456", 
+        "inStorage": true, 
+        "currentLocation": 3 
+    },
+    {
+        "_id": 8, 
+        "vehicleModel": 2, 
+        "license": "NJ567", 
+        "inStorage": true, 
+        "currentLocation": 4 
+    },
+    {
+        "_id": 9, 
+        "vehicleModel": 3, 
+        "license": "NY345", 
+        "inStorage": true, 
+        "currentLocation": 2 
+    },
+    {
+        "_id": 10, 
+        "vehicleModel": 3, 
+        "license": "NJ789", 
+        "inStorage": true, 
+        "currentLocation": 3 
+    },
+    {
+        "_id": 11, 
+        "vehicleModel": 3, 
+        "license": "NJ890", 
+        "inStorage": true, 
+        "currentLocation": 4 
+    },
+    {
+        "_id": 12, 
+        "vehicleModel": 3, 
+        "license": "NJ901", 
+        "inStorage": true, 
+        "currentLocation": 5 
+    },
+    {
+        "_id": 13, 
+        "vehicleModel": 4, 
+        "license": "NJ1234", 
+        "inStorage": true, 
+        "currentLocation": 3 
+    },
+    {
+        "_id": 14, 
+        "vehicleModel": 4, 
+        "license": "NJ2345", 
+        "inStorage": true, 
+        "currentLocation": 4 
+    },
+    {
+        "_id": 15, 
+        "vehicleModel": 4, 
+        "license": "NJ3456", 
+        "inStorage": true, 
+        "currentLocation": 5 
+    },
+    {
+        "_id": 16, 
+        "vehicleModel": 5, 
+        "license": "CA234", 
+        "inStorage": true, 
+        "currentLocation": 1 
+    },
+    {
+        "_id": 17, 
+        "vehicleModel": 5, 
+        "license": "NY456", 
+        "inStorage": true, 
+        "currentLocation": 2 
+    },
+    {
+        "_id": 18, 
+        "vehicleModel": 5, 
+        "license": "NJ4567", 
+        "inStorage": true, 
+        "currentLocation": 4 
+    },
+    {
+        "_id": 19, 
+        "vehicleModel": 5, 
+        "license": "NJ5678", 
+        "inStorage": true, 
+        "currentLocation": 5 
+    },
+    {
+        "_id": 20, 
+        "vehicleModel": 6, 
+        "license": "NY567", 
+        "inStorage": true, 
+        "currentLocation": 2 
+    },
+    {
+        "_id": 21, 
+        "vehicleModel": 6, 
+        "license": "NJ6789", 
+        "inStorage": true, 
+        "currentLocation": 3 
+    },
+    {
+        "_id": 22, 
+        "vehicleModel": 7, 
+        "license": "CA345", 
+        "inStorage": true, 
+        "currentLocation": 1 
+    },
+    {
+        "_id": 23, 
+        "vehicleModel": 7, 
+        "license": "NY678", 
+        "inStorage": true, 
+        "currentLocation": 2 
+    },
+    {
+        "_id": 24, 
+        "vehicleModel": 7, 
+        "license": "NJ7890", 
+        "inStorage": true, 
+        "currentLocation": 3 
+    },
+    {
+        "_id": 25, 
+        "vehicleModel": 7, 
+        "license": "NJ8901", 
+        "inStorage": true, 
+        "currentLocation": 4 
+    },
+    {
+        "_id": 26, 
+        "vehicleModel": 7, 
+        "license": "NJ9012", 
+        "inStorage": true, 
+        "currentLocation": 5 
+    }
+]

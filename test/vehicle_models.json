@@ -1,0 +1,79 @@
+[
+    {
+        "_id": 1,
+        "vehicleModel": "Jeep Cherokee", 
+        "vehicleType": "SUV & Crossover", 
+        "passengers": 5, 
+        "auto": true,
+        "ac": true, 
+        "dailyCharge": 40, 
+        "totalStorage": 5, 
+        "inStorage": 3
+    },
+    {
+        "_id": 2,
+        "vehicleModel": "Ford Escape", 
+        "vehicleType": "SUV & Crossover", 
+        "passengers": 5, 
+        "auto": true,
+        "ac": true, 
+        "dailyCharge": 40, 
+        "totalStorage": 3, 
+        "inStorage": 1
+    },
+    {
+        "_id": 3,
+        "vehicleModel": "Nissan Pathfinder", 
+        "vehicleType": "SUV & Crossover", 
+        "passengers": 5, 
+        "auto": true,
+        "ac": true, 
+        "dailyCharge": 40, 
+        "totalStorage": 4, 
+        "inStorage": 3
+    },
+    {
+        "_id": 4,
+        "vehicleModel": "Jeep Grand Cherokee", 
+        "vehicleType": "SUV & Crossover", 
+        "passengers": 5, 
+        "auto": true,
+        "ac": true, 
+        "dailyCharge": 40, 
+        "totalStorage": 3, 
+        "inStorage": 3
+    },
+    {
+        "_id": 5,
+        "vehicleModel": "Toyota Corolla", 
+        "vehicleType": "Car & Mid-Size", 
+        "passengers": 5, 
+        "auto": true,
+        "ac": true, 
+        "dailyCharge": 25, 
+        "totalStorage": 4, 
+        "inStorage": 1
+    },
+    {
+        "_id": 6,
+        "vehicleModel": "Ford Fusion", 
+        "vehicleType": "Car & FullSize", 
+        "passengers": 5, 
+        "auto": true,
+        "ac": true, 
+        "dailyCharge": 25, 
+        "totalStorage": 2, 
+        "inStorage": 2
+    }, 
+    {
+        "_id": 7,
+        "vehicleModel": "Dodge Grand Caravan", 
+        "vehicleType": "Mini Van", 
+        "passengers": 7, 
+        "auto": true,
+        "ac": true, 
+        "dailyCharge": 60, 
+        "totalStorage": 5, 
+        "inStorage": 3
+    }
+]
