@@ -1,0 +1,14 @@
+{{#if models}}
+
+<h2>All Vehicle Models</h2>
+
+<ul>
+    {{#each models}}
+    <li>Vehicle Model: <a href="/details/{{id}}">{{vehicleModel}}</a></li>
+    <li>Vehicle Type: {{vehicleType}}</li>
+    <li>Passengers: {{passengers}}</li>
+    {{/each}}
+</ul>
+
+{{/if}}
+

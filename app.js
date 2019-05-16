@@ -20,7 +20,7 @@ app.use(session({
     name: 'AuthCookie', 
     secret: 'sessiontest', 
     resave: false, 
-    saveUninitialized: true
+    saveUninitialized: false
 }))
 
 configRoutes(app)

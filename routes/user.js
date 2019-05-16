@@ -21,7 +21,7 @@ router.post("/signup", async (req, res) => {
             sessionId: userInsert.data.sessionId,
             identity: userInsert.data.identity
         })
-        console.log(`Successful POST Request: Signed up for ${signUpData.userName}`)
+        console.log(`Successful POST Request: ${signUpData.userName} successfully signed up.`)
     } catch (e) {
         res.status(500).json({
             error: "At post /user " + e
@@ -30,39 +30,70 @@ router.post("/signup", async (req, res) => {
 })
 
 router.post("/login", async (req, res) => {
-    //console.log("Trying to /user/login");
-    const userName = req.body.userName;
-    const userPwd = req.body.hashedPwd;
-    // username and password must be valid, checked in LoginPage.jsx
+    const userName = req.body.userName
+    const userPwd = req.body.hashedPwd
+
+    if (!userName) {
+        res.status(400).render("error", {
+            msg:"You must input a user name!"
+        })
+        return
+    }
+
+    if (!userPwd) {
+        res.status(400).render("error", {
+            msg:"You must input a password!"
+        })
+        return
+    }
+    
+    console.log(`POST Request: Login up for ${userName}`)
     try {
-        const user = await userData.getUserByUserName(userName);
-        if (user.success) { // Found name in database
-            const hashedPwd = user.data.hashedPwd;
-            const match = await bcrypt.compare(userPwd, hashedPwd);
-            if (match) { // Password match
-                res.json({
-                    isFind: true,
-                    msg: "Welcome back " + userName,
-                    sessionId: user.data.sessionId,
-                    identity: user.data.identity
-                });
-            } else { // Errr password not match
-                res.json({
-                    isFind: false,
-                    msg: "Password is not matched!"
-                });
+        const user = await userData.getUserByUserName(userName)
+        if (user.success) {
+            // user name is found in database
+            const hashedPwd = user.data.hashedPwd
+            const match = await bcrypt.compare(userPwd, hashedPwd)
+
+            if (match) {
+                // the hashed password matches
+                console.log(`Successful POST Request: ${userName} successfully logged in.`)
+                res.render("temp", {
+                    user: user.data
+                })
+                // res.json({
+                //     isFind: true,
+                //     msg: "Welcome back " + userName,
+                //     sessionId: user.data.sessionId,
+                //     identity: user.data.identity
+                // })
+            } else { 
+                // the hashed password does not match
+                console.log(`Unsuccessful POST Request: password does not match.`)
+                res.status(400).render("error", {
+                    msg:"Password does not match!"
+                })
+                // res.json({
+                //     isFind: false,
+                //     msg: "Password is not matched!"
+                // });
             }
-        } else { // Username not found in database
-            res.json({
-                isFind: false,
-                msg: "Username is not found!"
-            });
+        } else {
+            // user name is not found in database
+            console.log(`Unsuccessful POST Request: username does not exist.`)
+            res.status(400).render("error", {
+                msg:"Username does not exist!"
+            })
+            // res.json({
+            //     isFind: false,
+            //     msg: "Username is not found!"
+            // })
         }
     } catch (e) {
         res.status(500).json({
-            error: "At post /user/login " + e
-        });
+            error: "At post /user/login: " + e
+        })
     }
-});
+})
 
 module.exports = router

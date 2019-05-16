@@ -6,6 +6,9 @@ const constructorMethod = app => {
     app.get("/", (req, res) => {
         res.render("login", {title: "Car Rental"})
     })
+    app.get("/signup", (req, res) => {
+        res.render("signup", {title: "Car Rental"})
+    })
 
     app.use("*", (req, res) => {
         res.redirect("/")
