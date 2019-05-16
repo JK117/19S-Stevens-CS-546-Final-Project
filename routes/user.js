@@ -1,19 +1,24 @@
 const express = require("express")
 const router = express.Router()
-const bcrypt = require("bcrypt")
+const bcrypt = require("bcryptjs")
 const userData = require("../data/user")
 
-router.post("/signup", async (req, res) => {
-    const formData = req.body;
+// router.get("/", (req, res) => {
+//     res.render("signup", {title: "Car Rental"})
+// })
+
+router.post("/", async (req, res) => {
+    const formData = req.body
+    console.log(`POST Request: Sign up for ${formData.userName}`)
     try {
-        const foundUser = await userData.getUserByUsername(formData.username)
+        const foundUser = await userData.getUserByUsername(formData.userName)
         if (foundUser.success) {
             res.json({
                 success: false
             })
             return
         }
-        formData.hashedPassword = await bcrypt.hash(formData.hashedPassword, 10)
+        formData.hashedPwd = await bcrypt.hash(formData.hashedPwd, 10)
         const newPost = await userData.addUser(formData)
         res.json({
             success: newPost.success,
@@ -26,3 +31,5 @@ router.post("/signup", async (req, res) => {
         })
     }
 })
+
+module.exports = router

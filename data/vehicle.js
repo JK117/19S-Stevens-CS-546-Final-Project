@@ -76,9 +76,22 @@ async function updateVehicleLocationById(id, loc){
     }
 }
 
+async function getVehicleByModel(id){
+    if(typeof id !== 'string'){
+        return { success : false, desc: "invalid params"}
+    }
+    let result =  await carModel.findOne({vehicleModel: id})
+    if( result ){
+        return { success : true, data: result}
+    }else{
+        return { success : false, desc: `can't find the vehicle moodel ${id} in database`}
+    }
+}
+
 module.exports = {
     getVehicleById, 
     addVehicle, 
     updateVehicleStatuById, 
-    updateVehicleLocationById
+    updateVehicleLocationById, 
+    getVehicleByModel
 }

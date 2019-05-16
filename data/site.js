@@ -114,6 +114,27 @@ async function addSite(data) {
     }
 }
 
+async function getSiteByAddress(siteName, siteCity, siteState, siteType){
+    if(typeof siteName !== 'string' || 
+        typeof siteCity !== 'string' || 
+        typeof siteState !== 'string' ||
+        typeof siteType !== 'string' ){
+        return {success: false, desc: "invalid params"};
+    }
+    let result = await siteModel.findOne({
+        "siteName": siteName,
+        "siteCity": siteCity,
+        "siteState": siteState,
+        "siteType": siteType
+    });
+    if(result.length > 0){
+        return {success: true, data: result};
+    }
+    else{
+        return {success: false, desc: `can't find site type: ${siteType} in database`};
+    }
+}
+
 module.exports = {
     getAllSites, 
     getSiteById, 
@@ -121,5 +142,6 @@ module.exports = {
     getSiteBySiteCity, 
     getSiteBySiteState, 
     getSiteBySiteType, 
-    addSite
+    addSite, 
+    getSiteByAddress
 }

@@ -1,0 +1,42 @@
+{{#if user}}
+
+<h2>{{user.username}} Information:</h2>
+
+<ul>
+    <li>user_id: {{user._id}}</li>
+    <li>username: {{user.username}}</li>
+    <li>firstName{{user.firstName}}</li>
+    <li>lastName{{user.lastName}}</li>
+    <li>email{{user.email}}</li>
+    {{#if user.staff}}
+    <li>staff</li>
+    {{else}}
+    <li>customer</li>
+    {{/if}}
+</ul>
+
+{{/if}}
+
+
+
+<br>
+
+{{#if order}}
+<ul>
+    {{#each order}}
+    <li>Order ID: {{_id}}</li>
+    <li>Vehicle ID: {{vehicleID}}</li>
+    <li>Vehicle Model: {{vehicleModel}}</li>
+    <li>The site where the vehicle is picked up: {{from}}</li>
+    <li>The site where the vehicle is dropped off: {{to}}</li>
+    <li>The date when the vehicle is picked up: {{pickUpDate}}</li>
+    <li>The date when the vehicle is dropped off: {{dropOffDate}}</li>
+    <li>The total charge of the order: {{totalCharge}}</li>
+    {{/each}}
+</ul>
+{{else}}
+<li>No order record.</li>
+{{/if}}
+
+<br>
+

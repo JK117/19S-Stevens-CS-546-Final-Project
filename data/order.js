@@ -21,6 +21,7 @@ async function addOrder(data){
     }
     if(typeof data.userId === "undefined" || 
         typeof data.vehicleId === "undefined" ||
+        typeof data.vehicleModel === "undefined" || 
         typeof data.from === "undefined" ||
         typeof data.to === "undefined" ||
         typeof data.pickUpDate === "undefined" ||
@@ -32,6 +33,7 @@ async function addOrder(data){
         "_id": uuid.v4(), 
         "userId": data.userId, 
         "vehicleId": data.vehicleId, 
+        "vehicleModel": data.vehicleModel, 
         "from": data.from, 
         "to": data.to,
         "pickUpdate": data.pickUpdate, 
@@ -46,7 +48,20 @@ async function addOrder(data){
     }
 }
 
+async function getOrderByUserId(id){
+    if(typeof id !== 'string'){
+        return { success : false, desc: "invalid params"}
+    }
+    let result =  await orderModel.find({userId:id})
+    if( result ){
+        return { success : true, data: result}
+    }else{
+        return { success : false, desc: `can't find ${id} in database`}
+    }
+}
+
 module.exports = {
     getOrderById, 
+    getOrderByUserId, 
     addOrder
 }

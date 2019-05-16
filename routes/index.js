@@ -1,8 +1,16 @@
-const express = require("express")
-const router = express.Router()
-const bcrypt = require("bcrypt")
-const userData = require("../data").user
+const userRoute = require("./user")
 
-router.post("/login", async (req, res) => {
-    
-})
+const constructorMethod = app => {
+    app.use("/signup", userRoute)
+    // app.use("/details", detailsRoutes)
+
+    app.get("/", (req, res) => {
+        res.render("signup", {title: "Car Rental"})
+    })
+
+    app.use("*", (req, res) => {
+        res.sendStatus(404)
+    })
+}
+
+module.exports = constructorMethod;
