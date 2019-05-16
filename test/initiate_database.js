@@ -1,5 +1,8 @@
 const fs = require("fs")
+const userData = require("../data/user")
+const modelData = require("../data/vehicle_model")
 const siteData = require("../data/site")
+const vehicleData = require("../data/vehicle")
 
 async function getDataFile(fileDirc){
     let data = JSON.parse(fs.readFileSync(fileDirc))
