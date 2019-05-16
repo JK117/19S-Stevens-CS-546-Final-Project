@@ -1,0 +1,80 @@
+<h2> 
+    <i>
+        Order Cart
+    </i>
+</h2>
+
+<h4> Car Information </h4>
+
+<dl>
+    <dt>Vehicle Model ID</dt>
+    <dd>{{detail._id}}</dd>
+    <dt>Vehicle Model</dt>
+    <dd>{{detail.vehicleModel}}</dd>
+    <dt>Vehicle Type</dt>
+    <dd>{{detail.vehicleType}}</dd>
+    <dt>Passengers</dt>
+    <dd>{{detail.passengers}}</dd>
+
+    <dt>Auto</dt>
+    {{#if detail.auto}} <dd>Automatic Gear</dd>
+    {{else}} <dd>Manual File</dd>
+    {{/if}}
+
+    <dt>Air Conditioner</dt>
+    {{#if detail.ac}} <dd>Support</dd>
+    {{else}} <dd>Not Support</dd>
+    {{/if}}
+
+    <dt>Daily Charge</dt>
+    <dd>{{detail.dailyCharge}}</dd>
+    <dt>Total Number of In Storage Vehicle</dt>
+    <dd>{{detail.totalStorage}}</dd>
+    <dt>Current Number of In Storage Vehicle</dt>
+    <dd>{{detail.inStorage}}</dd>
+</dl>
+
+<h4> Select Location and Time </h4>
+
+<form action="" method="get"> 
+<label>Pick Up Location</label> 
+<select name="from"> 
+<option value="SFO">San Francisco International Airport</option> 
+<option value="JFK">New York John Fitzgerald Kennedy International Airport</option> 
+<option value="EWR">Newark Liberty International Airport</option> 
+<option value="Hoboken River Street">Hoboken River Street</option> 
+<option value="Central Mall">Central Mall</option> 
+</select> 
+</form> 
+
+<form action="" method="get"> 
+<label>Drop Off Location</label> 
+<select name="to"> 
+<option value="SFO">San Francisco International Airport</option> 
+<option value="JFK">New York John Fitzgerald Kennedy International Airport</option> 
+<option value="EWR">Newark Liberty International Airport</option> 
+<option value="Hoboken River Street">Hoboken River Street</option> 
+<option value="Central Mall">Central Mall</option> 
+</select> 
+</form> 
+
+<form action="" method="get"> 
+<label>Pick Up Time</label> 
+<input type="date" name="pickUpDate" id="myLocalDate">
+</form> 
+
+<form action="" method="get"> 
+<label>Drop Of Time</label> 
+<input type="date" name="dropOffDate" id="myLocalDate">
+</form> 
+
+<dl>
+    <dt>Total Cost</dt>
+    <dd>{{totalCost}}</dd>
+</dl>
+
+<input type = "Submit" />  
+
+
+
+

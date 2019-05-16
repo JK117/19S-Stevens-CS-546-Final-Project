@@ -11,10 +11,15 @@ const userData = require("../data/user");
 
 // Get vehicle model information 
 router.get("/:id", async(req, res) => {
+    const orderDetail = req.body;
     try{
         const model = await modelData.getVehicleModelById(Number(req.params.id)); 
+        const days = orderDetail.dropOffDate - orderDetail.pickUpDate; 
+        const total = days * model.dailyCharge; 
+
         res.render("detail", {
-            detail: model
+            detail: model,
+            totalCost: total
         })
     } catch (e) {
         res.status(404).render("error", {
@@ -29,11 +34,12 @@ router.post("/:id", async (req, res) => {
     const orderDetail = req.body;
     try {
         // Total Charges
+        const model = await modelData.getVehicleModelById(Number(req.params.id));
         const days = orderDetail.dropOffDate - orderDetail.pickUpDate; 
         const total = days * model.dailyCharge; 
 
         // Get vehicle ID
-        const siteInfo = await siteData.getSiteBySiteName(orderData.from); 
+        const siteInfo = await siteData.getSiteBySiteName(orderDetail.from); 
         const siteId = siteInfo._id; 
     
         const carList = await vehicleData.getVehicleByModel(Number(req.params.id));
@@ -56,10 +62,10 @@ router.post("/:id", async (req, res) => {
         const newOrder = await orderData.addOrder({
             "userId": userId, 
             "vehicleId": vehicleId,
-            "from": orderData.from,
-            "to": orderData.to, 
-            "pickUpDate": orderData.pickUpDate,
-            "dropOffDate": orderData.dropOffDate,
+            "from": orderDetail.from,
+            "to": orderDetail.to, 
+            "pickUpDate": orderDetail.pickUpDate,
+            "dropOffDate": orderDetail.dropOffDate,
             "totalCharge": total 
         }); 
 
@@ -72,7 +78,7 @@ router.post("/:id", async (req, res) => {
             const modelInfo = await modelData.getVehicleModelById(req.params.id); 
             const currentNum = modelInfo.inStorege; 
             await modelData.updateVehicleInStorageById(Num(req.params.id), currentNum - 1);
-            
+
             res.json({ isAdd: true });
         } else {
             res.json({ isAdd: false });
