@@ -15,12 +15,16 @@ app.use("/public", static)
 app.engine("handlebars", handlebar({ defaultLayout: "main" }))
 app.set("view engine", "handlebars")
 
-app.use(cookieParser("sessiontest"))
+let identityKey = 'skey'
+// app.use(cookieParser(identityKey))
 app.use(session({
-    name: 'AuthCookie', 
-    secret: 'sessiontest', 
+    name: identityKey, 
+    secret: 'secretmyass', 
     resave: false, 
-    saveUninitialized: false
+    saveUninitialized: false, 
+    cookie: {
+		maxAge: 60000 * 10
+	}
 }))
 
 configRoutes(app)

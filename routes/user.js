@@ -58,9 +58,21 @@ router.post("/login", async (req, res) => {
             if (match) {
                 // the hashed password matches
                 console.log(`Successful POST Request: ${userName} successfully logged in.`)
-                res.render("temp", {
-                    user: user.data
+
+                req.session.regenerate(function(err) {
+                    if(err){
+                        return res.json({ret_code: 2, ret_msg: 'login failed'})
+                    }
+                    
+                    req.session.userName = userName
+                    res.json({ret_code: 0, ret_msg: '登录成功'})
+                    res.render("temp", {
+                        user: user.data,
+                        session: req.session
+                    })
+                    // res.json(req.session)
                 })
+
                 // res.json({
                 //     isFind: true,
                 //     msg: "Welcome back " + userName,
