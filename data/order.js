@@ -36,7 +36,7 @@ async function addOrder(data){
         "vehicleModel": data.vehicleModel, 
         "from": data.from, 
         "to": data.to,
-        "pickUpdate": data.pickUpDate, 
+        "pickUpDate": data.pickUpDate, 
         "dropOffDate": data.dropOffDate, 
         "totalCharge": data.totalCharge,
     })
