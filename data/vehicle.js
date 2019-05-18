@@ -2,6 +2,7 @@
 const uuid = require('uuid')
 const models = require('./schemas')
 const carModel = models.getModel('Vehicles')
+const siteModel = models.getModel('Sites')
 
 async function getVehicleById(id){
     if(typeof id !== 'string'){
@@ -40,7 +41,7 @@ async function addVehicle(data){
     }
 }
 
-async function updateVehicleStatuById(id, statu){
+async function updateVehicleStatuById(id, status){
     if(typeof id !== 'string'){
         return { success : false, desc: "invalid params"}
     }
@@ -48,7 +49,7 @@ async function updateVehicleStatuById(id, statu){
         '_id': id 
     },{
         '$set':{
-            'inStorage': statu
+            'inStorage': status
         }
     })
     if(result.n > 0){
@@ -88,10 +89,39 @@ async function getVehicleByModel(id){
     }
 }
 
+async function getVehicleBySiteAndModelAndStatus(siteName, vehicleModel){
+    if(typeof siteName !== 'string'){
+        return { success : false, desc: "invalid params"}
+    }
+    if(typeof vehicleModel !== 'string'){
+        return { success : false, desc: "invalid params"}
+    }
+    let result =  await carModel.find({currentLocation:siteName, vehicleModel:vehicleModel, inStorage:true})
+    if( result ){
+        return { success : true, data: result}
+    }else{
+        return { success : false, desc: `can't find the vehicle model ${vehicleModel} in database`}
+    }
+}
+
+async function getVehicleBySite(siteName){
+    if(typeof siteName !== 'string'){
+        return { success : false, desc: "invalid params"}
+    }
+    let result =  await carModel.find({currentLocation: siteName})
+    if( result ){
+        return { success : true, data: result}
+    }else{
+        return { success : false, desc: `can't find the vehicle moodel ${id} in database`}
+    }
+}
+
 module.exports = {
     getVehicleById, 
     addVehicle, 
     updateVehicleStatuById, 
     updateVehicleLocationById, 
-    getVehicleByModel
+    getVehicleByModel, 
+    getVehicleBySiteAndModelAndStatus, 
+    getVehicleBySite
 }

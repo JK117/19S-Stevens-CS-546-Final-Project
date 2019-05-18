@@ -1,14 +1,23 @@
-{{#if models}}
+<p>Welcome {{user.userName}}</p>
+<p><a href="/profile/{{id}}">My profile &amp; orders</a></p>
 
-<h2>All Vehicle Models</h2>
+{{#if result}}
+
+<h2> All Vehicle Models</h2>
 
 <ul>
-    {{#each models}}
-    <li>Vehicle Model: <a href="/details/{{id}}">{{vehicleModel}}</a></li>
+    {{#each result}}
+    <li>Vehicle Model: <a href="/detail/{{id}}"> {{vehicleModel}}</a></li>
     <li>Vehicle Type: {{vehicleType}}</li>
     <li>Passengers: {{passengers}}</li>
+    <br>
     {{/each}}
 </ul>
 
+{{else}}
+    <h2 class="not-found"> We're sorry, there is no vehicle avaliable. </h2>
 {{/if}}
+
+<p></p>
+<a href="/logout">Logout</a>
 

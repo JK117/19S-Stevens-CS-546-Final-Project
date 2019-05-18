@@ -1,17 +1,19 @@
 const userRoute = require("./user")
+const viewRoute =require("./view")
+const profileRoute = require("./profile")
+const detailRoute = require("./detail")
 
 const constructorMethod = app => {
     app.use("/user", userRoute)
-
-    // app.get("/", (req, res) => {
-    //     res.render("login", {title: "Car Rental"})
-    // })
+    app.use("/view", viewRoute)
+    app.use("/profile", profileRoute)
+    app.use("/detail", detailRoute)
 
     app.get("/", (req, res, next) => {
         if (!req.session.userName) {
             res.render("login", {title: "Car Rental"})
         } else {
-            res.render("temp", {session: req.session})
+            res.redirect(`/view/${req.session.userName}`)
         }
     })
 
@@ -20,16 +22,10 @@ const constructorMethod = app => {
     })
 
     app.get("/logout", (req, res) => {
+        console.log(`GET Request: ${req.session.userName} successfully logged out.`)
         req.session.destroy(function(err) {
-            // if(err){
-            //     res.json({ret_code: 2, ret_msg: '退出登录失败'});
-            //     return;
-            // }
-            
-            // // req.session.loginUser = null;
-            // res.clearCookie(identityKey)
             res.redirect('/')
-        });
+        })
     })
 
     app.use("*", (req, res) => {
@@ -37,4 +33,4 @@ const constructorMethod = app => {
     })
 }
 
-module.exports = constructorMethod;
+module.exports = constructorMethod

@@ -1,6 +1,6 @@
 const fs = require("fs")
 const userData = require("../data/user")
-const modelData = require("../data/vehicle_model")
+const vehicleModelData = require("../data/vehicle_model")
 const siteData = require("../data/site")
 const vehicleData = require("../data/vehicle")
 
@@ -25,7 +25,7 @@ async function addUsers(){
 
 async function addVehicleModels(){
     let vehicleModelList = await getDataFile("./vehicle_models.json"); 
-    let vehicleModelData = data.vehicle_model; 
+    // let vehicleModelData = data.vehicle_model; 
 
     for (let i = 0; i < vehicleModelList.length; i ++){
         try {
@@ -50,8 +50,8 @@ async function addSites(){
 }
 
 async function addVehicle(){
-    let vehicleList = await getDataFile("/dataFile/vehicles.json"); 
-    let vehicleData = data.vehicle; 
+    let vehicleList = await getDataFile("./vehicles.json"); 
+    // let vehicleData = data.vehicle; 
 
     for (let i = 0; i < vehicleList.length; i ++){
         try {
@@ -69,4 +69,6 @@ async function addVehicle(){
 //     addVehicle
 // }
 
-addSites("./sites.json")
+addSites()
+addVehicleModels()
+addVehicle()

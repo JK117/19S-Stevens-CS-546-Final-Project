@@ -1,7 +1,7 @@
 "use strict";
 const uuid = require('uuid')
-const models = require('./models')
-const orderModel = models.getModel('Order')
+const models = require('./schemas')
+const orderModel = models.getModel('Orders')
 
 async function getOrderById(id){
     if(typeof id !== 'string'){
@@ -36,7 +36,7 @@ async function addOrder(data){
         "vehicleModel": data.vehicleModel, 
         "from": data.from, 
         "to": data.to,
-        "pickUpdate": data.pickUpdate, 
+        "pickUpdate": data.pickUpDate, 
         "dropOffDate": data.dropOffDate, 
         "totalCharge": data.totalCharge,
     })
@@ -60,8 +60,21 @@ async function getOrderByUserId(id){
     }
 }
 
+async function deleteOrderById(id){
+    if(typeof id !== 'string'){
+        return { success : false, desc: "invalid params"}
+    }
+    let result = await orderModel.remove({_id: id})
+    if(result.n > 0){
+        return { success : true, data: result}
+    }else{
+        return { success : false, desc: `can't find and delete order ${id} in database`}
+    }
+}
+
 module.exports = {
     getOrderById, 
     getOrderByUserId, 
-    addOrder
+    addOrder, 
+    deleteOrderById
 }

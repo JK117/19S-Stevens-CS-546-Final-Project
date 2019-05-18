@@ -1,5 +1,6 @@
 "use strict";
 const uuid = require('uuid')
+const fs = require('fs')
 const models = require('./schemas')
 const vehicleModel = models.getModel('VehicleModels')
 
@@ -108,11 +109,51 @@ async function updateVehicleInStoragebyId(id, num){
     }
 }
 
+async function incVehicleInStorageById(id){
+    if(typeof id !== 'string'){
+        return { success : false, desc: "invalid params"}
+    }
+    let result = await vehicleModel.findOne({_id:id});
+    result = await vehicleModel.updateOne({
+        '_id': id 
+    },{
+        '$set':{
+            'inStorage': result.inStorage + 1
+        }
+    })
+    if(result.n > 0){
+        return { success : true , data : result.nModified}
+    }else{
+        return { success : false, desc: `can't find vehicle model id: ${id} in database`}
+    }
+}
+
+async function desVehicleInStorageById(id){
+    if(typeof id !== 'string'){
+        return { success : false, desc: "invalid params"}
+    }
+    let result = await vehicleModel.findOne({_id:id});
+    result = await vehicleModel.updateOne({
+        '_id': id 
+    },{
+        '$set':{
+            'inStorage': result.inStorage - 1
+        }
+    })
+    if(result.n > 0){
+        return { success : true , data : result.nModified}
+    }else{
+        return { success : false, desc: `can't find vehicle model id: ${id} in database`}
+    }
+}
+
 module.exports = {
     getAllVehicleModels, 
     getVehicleModelById,
     // getVehicleByModels, 
     addVehicleModels, 
     updateVehicleTotalbyId, 
-    updateVehicleInStoragebyId
+    updateVehicleInStoragebyId, 
+    incVehicleInStorageById, 
+    desVehicleInStorageById
 }

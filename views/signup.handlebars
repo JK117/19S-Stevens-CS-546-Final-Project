@@ -1,25 +1,25 @@
-<form id="signup-form", method="POST" action="/user/signup">
+<form id="signup-form" , method="POST" action="/user/signup">
     <h2>Sign Up</h2>
-    <label for="userName">Username</label><br/>
-    <input type="text" name="userName" id="userName"><br/>
+    <label for="userName">Username</label><br />
+    <input type="text" name="userName" id="userName" required = "true"><br />
 
-    <label for="hashedPwd">Password</label><br/>
-    <input type="password" name="hashedPwd" id="hashedPwd"><br/>
+    <label for="hashedPwd">Password</label><br />
+    <input type="password" name="hashedPwd" id="hashedPwd" required = "true"><br />
 
-    <label for="firstName">First Name</label><br/>
-    <input type="text" name="firstName" id="firstName"><br/>
+    <label for="firstName">First Name</label><br />
+    <input type="text" name="firstName" id="firstName" required = "true"><br />
 
-    <label for="lastName">Last Name</label><br/>
-    <input type="text" name="lastName" id="lastName"><br/>
+    <label for="lastName">Last Name</label><br />
+    <input type="text" name="lastName" id="lastName" required = "true"><br />
 
-    <label for="email">Email</label><br/>
-    <input type="email" name="email" id="email"><br/>
+    <label for="email">Email</label><br />
+    <input type="email" name="email" id="email" required = "true"><br />
 
-    <label for="staff">Are you a staff?</label><br/>
-    <input type="radio" name="staff" id="staff" value="true"/>
-    <label for="staff">Yes</label><br/>
-    <input type="radio" checked="checked" name="staff" id="staff" value="false"/>
-    <label for="staff">No</label><br/>
+    <label for="staff">Are you a staff?</label><br />
+    <input type="radio" name="staff" id="staff" value="true" />
+    <label for="staff">Yes</label><br />
+    <input type="radio" checked="checked" name="staff" id="staff" value="false" />
+    <label for="staff">No</label><br />
 
     <button type="submit">Submit</button>
 </form>

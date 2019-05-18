@@ -4,7 +4,9 @@
   "description": "This is the repository for 19 Spring Stevens CS-546 final project.",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1", 
+    "initiate": "node test/initiate_database.js", 
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
@@ -23,6 +25,8 @@
     "express": "^4.16.4",
     "express-handlebars": "^3.1.0",
     "express-session": "^1.16.1",
+    "fs": "0.0.1-security",
+    "moment": "^2.24.0",
     "mongoose": "^5.5.8",
     "uuid": "^3.3.2"
   }
