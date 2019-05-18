@@ -1,0 +1,82 @@
+[
+    {
+        "_id": 1, 
+        "userName": "rHerley",
+        "firstName": "Robert",
+        "lastName": "Herley", 
+        "email": "rherley@stevens.edu", 
+        "hashedPwd": "xxxx", 
+        "avatarUrl": "xxxx", 
+        "staff": true
+    },
+    {
+        "_id": 2, 
+        "userName": "wEminson",
+        "firstName": "Wilfred",
+        "lastName": "Eminson", 
+        "email": "weminson@stevens.edu", 
+        "hashedPwd": "xxxx", 
+        "avatarUrl": "xxxx", 
+        "staff": true
+    },
+    {
+        "_id": 3, 
+        "userName": "eBonar",
+        "firstName": "Ebenezer",
+        "lastName": "Bonar", 
+        "email": "ebonar@stevens.edu", 
+        "hashedPwd": "xxxx", 
+        "avatarUrl": "xxxx", 
+        "staff": false
+    },
+    {
+        "_id": 4, 
+        "userName": "kMoehle",
+        "firstName": "Karry",
+        "lastName": "Moehle", 
+        "email": "kmoehle@stevens.edu", 
+        "hashedPwd": "xxxx", 
+        "avatarUrl": "xxxx", 
+        "staff": false
+    },
+    {
+        "_id": 5, 
+        "userName": "eBasilone",
+        "firstName": "Evvy",
+        "lastName": "Basilone", 
+        "email": "ebasilone@stevens.edu", 
+        "hashedPwd": "xxxx", 
+        "avatarUrl": "xxxx", 
+        "staff": false
+    },
+    {
+        "_id": 6, 
+        "userName": "dBeautyman",
+        "firstName": "Duky",
+        "lastName": "Beautyman", 
+        "email": "dbeautyman@stevens.edu", 
+        "hashedPwd": "xxxx", 
+        "avatarUrl": "xxxx", 
+        "staff": false
+    },
+    {
+        "_id": 7, 
+        "userName": "rDreus",
+        "firstName": "Renee",
+        "lastName": "Dreus", 
+        "email": "rdreus@stevens.edu", 
+        "hashedPwd": "xxxx", 
+        "avatarUrl": "xxxx", 
+        "staff": true
+    },
+    {
+        "_id": 8, 
+        "userName": "eGawke",
+        "firstName": "Elisabetta",
+        "lastName": "Gawke", 
+        "email": "egawke@stevens.edu", 
+        "hashedPwd": "xxxx", 
+        "avatarUrl": "xxxx", 
+        "staff": true
+    }
+]

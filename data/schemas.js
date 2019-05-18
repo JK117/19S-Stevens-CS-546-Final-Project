@@ -56,6 +56,7 @@ const orderSchema = mongoose.Schema({
     _id: {type:String, 'require':true}, 
     userId: {type:String, 'require':true}, 
     vehicleId: {type:String, 'require':true}, 
+    vehicleModel: {type:String, 'require':true}, 
     from: {type:String, 'require':true}, 
     to: {type:String, 'require':true}, 
     pickUpDate: {type:String, 'require':true}, 
