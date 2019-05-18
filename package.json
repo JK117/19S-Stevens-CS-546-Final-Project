@@ -4,8 +4,8 @@
   "description": "This is the repository for 19 Spring Stevens CS-546 final project.",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1", 
-    "initiate": "node test/initiate_database.js", 
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "initiate": "node test/initiate_database.js",
     "start": "node app.js"
   },
   "repository": {
