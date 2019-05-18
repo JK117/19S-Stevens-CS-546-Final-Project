@@ -46,6 +46,13 @@ router.post("/", async (req, res) => {
             // Get available vehicles
             const vehicles = await vehicleData.getVehicleBySiteAndModelAndStatus(orderInfo.from, vehicleModelName)
             // Select one from available vehicles
+            if (vehicles.data.length == 0) {
+                res.render("order_error", {
+                    msg: "No vehicle available at the designated pick-up site, please make another selection.", 
+                    id: vehicleModelId
+                })
+                return
+            }
             const vehicle = vehicles.data[0]
 
             // Calculate total charge
