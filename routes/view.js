@@ -1,13 +1,23 @@
 const express = require("express")
 const router = express.Router()
-const bcrypt = require("bcrypt")
-const modelData = require("../data/vehicle_models")
+const userData = require("../data/user")
+const modelData = require("../data/vehicle_model")
 
-router.get("/vehicle_models", async (req, res) => {
-    try{
-        const models = await modelData.getAllVehicleModels();
-        res.render("allModels", {models: models}); 
-    } catch(err){
-        console.log(err)
+router.get("/:id", async (req, res) => {
+    const userName = req.params.id
+
+    try {
+        const user = await userData.getUserByUserName(userName)
+        const models = await modelData.getAllVehicleModels()
+        res.render("view", {
+            user: user.data,
+            id: user.data._id,
+            sessionId: userName,
+            result: models.data
+        })
+    } catch (error) {
+        console.log(error)
     }
 })
+
+module.exports = router

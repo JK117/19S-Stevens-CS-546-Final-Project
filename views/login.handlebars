@@ -1,10 +1,10 @@
 <form id="login-form", method="POST" action="/user/login">
     <h2>Login</h2>
     <label for="userName">Username</label><br/>
-    <input type="text" name="userName" id="userName"><br/>
+    <input type="text" name="userName" id="userName" required="true"><br/>
 
     <label for="hashedPwd">Password</label><br/>
-    <input type="password" name="hashedPwd" id="hashedPwd"><br/>
+    <input type="password" name="hashedPwd" id="hashedPwd" required="true"><br/>
 
     <button type="submit">Submit</button>
 </form>

@@ -30,7 +30,7 @@ async function getUserBySessionId(sessionid){
     if(typeof sessionid !== 'string'){
         return { success : false, desc: "invalid params"}
     }
-    let result = await userModel.findOne({'sessionId':sessionid})
+    let result = await userModel.findOne({'sessionId': sessionid})
     if( result ){
         return { success : true, data: result}
     }else{
@@ -55,11 +55,10 @@ async function deleteSessionId(sessionid){
     }
 }
 
-async function addSessionIdById(id){
+async function addSessionIdById(id, newSessionId){
     if(typeof id !== 'string'){
         return { success : false, desc: "invalid params"}
     }
-    let newSessionId = uuid.v4()
     let result =  await userModel.updateOne({
         '_id':id},{
             '$set':{
@@ -169,6 +168,7 @@ async function addUser(data){
     }
     let newUser = await new userModel({
         "_id": uuid.v4(), 
+        "sessionId": data.sessionId,
         "userName": data.userName,
         "firstName": data.firstName,
         "lastName": data.lastName, 

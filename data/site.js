@@ -114,6 +114,17 @@ async function addSite(data) {
     }
 }
 
+async function remoceAll(){
+    let result = await siteModel.find({})
+    if(result && result.length < 1){
+        return {success: true, data: result}
+    }
+    else{
+        result.remove({})
+        return {success: false, desc: `can't find any site.`}
+    }
+}
+
 async function getSiteByAddress(siteName, siteCity, siteState, siteType){
     if(typeof siteName !== 'string' || 
         typeof siteCity !== 'string' || 

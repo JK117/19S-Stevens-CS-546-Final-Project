@@ -1,4 +1,4 @@
-<h2> 
+<h2>
     <i>
         Order Cart
     </i>
@@ -36,49 +36,30 @@
 
 <h4> Select Location and Time </h4>
 
-<form action="" method="get"> 
-<label>Pick Up Location</label> 
-<select name="from"> 
-<option value="SFO">San Francisco International Airport</option> 
-<option value="JFK">New York John Fitzgerald Kennedy International Airport</option> 
-<option value="EWR">Newark Liberty International Airport</option> 
-<option value="Hoboken River Street">Hoboken River Street</option> 
-<option value="Central Mall">Central Mall</option> 
-</select> 
-</form> 
+<form id="order-form" method="POST" action="/detail">
+    <label>Pick Up Location</label>
+    <select name="from" id="from">
+        {{#each siteList}}
+            <option value={{siteName}}>{{siteName}}</option>
+        {{/each}}
+    </select><br>
 
-<form action="" method="get"> 
-<label>Drop Off Location</label> 
-<select name="to"> 
-<option value="SFO">San Francisco International Airport</option> 
-<option value="JFK">New York John Fitzgerald Kennedy International Airport</option> 
-<option value="EWR">Newark Liberty International Airport</option> 
-<option value="Hoboken River Street">Hoboken River Street</option> 
-<option value="Central Mall">Central Mall</option> 
-</select> 
-</form> 
+    <label>Drop Off Location</label>
+    <select name="to" id="to">
+        {{#each siteList}}
+            <option value={{siteName}}>{{siteName}}</option>
+        {{/each}}
+    </select><br>
 
-<form action="" method="get"> 
-<label>Pick Up Time</label> 
-<input type="date" name="pickUpDate" id="myLocalDate">
-</form> 
+    <label>Pick Up Time</label>
+    <input type="date" name="pickUpDate" id="pickUpDate" required="true"><br>
 
-<form action="" method="get"> 
-<label>Drop Of Time</label> 
-<input type="date" name="dropOffDate" id="myLocalDate">
-</form> 
-
-<dl>
-    <dt>Total Cost</dt>
-    <dd>{{totalCost}}</dd>
-</dl>
-
-<p>
-    <a href="/" title="Vehicle Mode Page"> Previous Page </a>
-    <input type = "Submit" align ="right"/> 
-</p>
- 
-
-
-
-
+    <label>Drop Of Time</label>
+    <input type="date" name="dropOffDate" id="dropOffDate" required="true"><br>
+    <input type="hidden" name="vehicleModelId" value={{detail._id}}>
+    <input type="hidden" name="dailyCharge" value={{detail.dailyCharge}}>
+    <br>
+    <button type="submit">Submit</button>
+</form>
+<br>
+<a href="/view/{{user.userName}}">Return to last page</a>
